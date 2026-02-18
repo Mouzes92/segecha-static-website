@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get a Free Quote | Segecha Group – Logistics East Africa</title>
+    <meta name="description" content="Request a free freight and logistics quote. Pickup and delivery across Kenya, Tanzania, Uganda, Rwanda &amp; Burundi. We respond within 24 hours.">
+    <link rel="canonical" href="https://www.segecha.com/quote.html">
+    <meta property="og:title" content="Get a Free Quote | Segecha Group – Logistics East Africa">
+    <meta property="og:description" content="Free quote for pickup and delivery across Kenya, Tanzania, Uganda, Rwanda &amp; Burundi. We respond within 24 hours.">
+    <meta property="og:url" content="https://www.segecha.com/quote.html">
+    <meta property="og:image" content="https://www.segecha.com/images/logo-main.png">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/logo-icon.png">
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'system-ui'] }, colors: { brand: { primary: '#0a4d8c', primaryDark: '#063a6b', accent: '#e8a317', background: '#f8fafc', text: '#1e293b', muted: '#64748b', whatsapp: '#25D366' } } } } }
+    </script>
+    <style>
+        .quote-step { display: none; }
+        .quote-step.active { display: block; }
+        .quote-progress { transition: width 0.3s ease; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col bg-brand-background">
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200/80">
+        <nav class="container mx-auto px-4 flex justify-between items-center h-16 md:h-18">
+            <a href="index.html" class="flex items-center gap-3" aria-label="Segecha Group home">
+                <img src="images/logo-main.png" alt="Segecha Group Logo" class="h-9 md:h-10 w-auto">
+                <img src="images/logo-sg-group.png" alt="Segecha Group" class="h-7 md:h-8 w-auto hidden sm:block">
+            </a>
+            <div class="hidden md:flex items-center gap-6">
+                <a href="index.html" class="nav-link text-sm font-medium text-slate-600 hover:text-brand-primary transition-colors">Home</a>
+                <a href="services.html" class="nav-link text-sm font-medium text-slate-600 hover:text-brand-primary transition-colors">Services</a>
+                <a href="about.html" class="nav-link text-sm font-medium text-slate-600 hover:text-brand-primary transition-colors">About</a>
+                <a href="contact.html" class="nav-link text-sm font-medium text-slate-600 hover:text-brand-primary transition-colors">Contact</a>
+                <a href="faq.html" class="nav-link text-sm font-medium text-slate-600 hover:text-brand-primary transition-colors">FAQ</a>
+                <a href="tel:+254721762828" class="nav-link text-sm font-medium text-slate-600 hover:text-brand-primary transition-colors flex items-center gap-1.5"><i class="fas fa-phone-alt text-xs"></i> +254 721 762 828</a>
+                <a href="quote.html" class="btn-primary btn-accent text-sm py-2.5 px-5 rounded-lg">Get a quote</a>
+            </div>
+            <button id="mobile-menu-button" type="button" class="md:hidden p-2 text-slate-600 rounded-lg" aria-label="Open menu"><i class="fas fa-bars text-xl"></i></button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white py-4 px-4">
+            <a href="index.html" class="block py-3 text-slate-700 font-medium">Home</a>
+            <a href="services.html" class="block py-3 text-slate-700 font-medium">Services</a>
+            <a href="about.html" class="block py-3 text-slate-700 font-medium">About</a>
+            <a href="contact.html" class="block py-3 text-slate-700 font-medium">Contact</a>
+            <a href="faq.html" class="block py-3 text-slate-700 font-medium">FAQ</a>
+            <a href="tel:+254721762828" class="block py-3 text-slate-700 font-medium"><i class="fas fa-phone-alt mr-2"></i>+254 721 762 828</a>
+            <a href="quote.html" class="block mt-2 py-3 text-center font-semibold text-white bg-brand-primary rounded-lg">Get a quote</a>
+        </div>
+    </header>
+
+    <main class="flex-grow py-8 md:py-12">
+        <section class="container mx-auto px-4">
+            <div class="max-w-xl mx-auto">
+                <!-- Compact header -->
+                <div class="text-center mb-6">
+                    <h1 class="text-2xl md:text-3xl font-bold text-slate-900 mb-1">Get your free quote</h1>
+                    <p class="text-sm text-slate-500">2 quick steps · We respond within 24 hours</p>
+                </div>
+
+                <!-- Progress -->
+                <div class="mb-6">
+                    <div class="flex justify-between text-xs font-medium text-slate-500 mb-1.5">
+                        <span id="progress-label">Step 1 of 2</span>
+                        <span id="progress-pct">50%</span>
+                    </div>
+                    <div class="h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                        <div id="progress-bar" class="quote-progress h-full bg-brand-primary rounded-full" style="width: 50%"></div>
+                    </div>
+                </div>
+
+                <form id="quote-form" action="#" method="get">
+                    <!-- Step 1: Contact + Route -->
+                    <div id="step1" class="quote-step active card p-5 md:p-6 rounded-2xl">
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1" for="name">Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="John Okello" class="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1" for="company">Company</label>
+                                <input type="text" id="company" name="company" placeholder="Optional" class="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none text-sm">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1" for="email">Email *</label>
+                                <input type="email" id="email" name="email" required placeholder="you@company.com" class="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1" for="phone">Phone *</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+254 700 000 000" class="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none text-sm">
+                            </div>
+                        </div>
+                        <div class="border-t border-slate-200 pt-4 mt-2">
+                            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-3">Route</p>
+                            <div class="grid grid-cols-2 gap-4 mb-3">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-1" for="pickup_country">From (country) *</label>
+                                    <select id="pickup_country" name="pickup_country" required class="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none text-sm bg-white">
+                                        <option value="">Select</option>
+                                        <option value="Kenya">Kenya</option>
+                                        <option value="Tanzania">Tanzania</option>
+                                        <option value="Uganda">Uganda</option>
+                                        <option value="Rwanda">Rwanda</option>
+                                        <option value="Burundi">Burundi</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-1" for="pickup">City / address *</label>
+                                    <input type="text" id="pickup" name="pickup_location" required placeholder="e.g. Nairobi" class="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none text-sm">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-1" for="dropoff_country">To (country) *</label>
+                                    <select id="dropoff_country" name="dropoff_country" required class="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none text-sm bg-white">
+                                        <option value="">Select</option>
+                                        <option value="Kenya">Kenya</option>
+                                        <option value="Tanzania">Tanzania</option>
+                                        <option value="Uganda">Uganda</option>
+                                        <option value="Rwanda">Rwanda</option>
+                                        <option value="Burundi">Burundi</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-1" for="dropoff">City / address *</label>
+                                    <input type="text" id="dropoff" name="dropoff_location" required placeholder="e.g. Dar es Salaam" class="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none text-sm">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" id="btn-next" class="mt-6 w-full btn-primary btn-accent rounded-xl py-3 font-semibold text-sm flex items-center justify-center gap-2">
+                            Next: Cargo details <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- Step 2: Cargo + Submit -->
+                    <div id="step2" class="quote-step card p-5 md:p-6 rounded-2xl">
+                        <div class="mb-4">
+                            <label class="block text-sm font-semibold text-slate-700 mb-1" for="cargo">Cargo description *</label>
+                            <textarea id="cargo" name="cargo_description" required rows="3" placeholder="e.g. 20 pallets, ~5 tonnes. Type, weight or dimensions if known." class="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none text-sm resize-none"></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-semibold text-slate-700 mb-1" for="preferred_date">Preferred pickup date</label>
+                            <input type="date" id="preferred_date" name="preferred_date" class="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none text-sm">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-semibold text-slate-700 mb-1" for="notes">Additional notes</label>
+                            <textarea id="notes" name="additional_notes" rows="2" placeholder="Special handling, insurance, etc. (optional)" class="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none text-sm resize-none"></textarea>
+                        </div>
+                        <div class="flex gap-3">
+                            <button type="button" id="btn-back" class="flex-1 py-3 rounded-xl border-2 border-slate-300 text-slate-700 font-semibold text-sm hover:bg-slate-50 transition-colors">
+                                Back
+                            </button>
+                            <button type="submit" class="flex-1 btn-primary btn-accent rounded-xl py-3 font-semibold text-sm flex items-center justify-center gap-2">
+                                Submit <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <div class="mt-6 p-4 rounded-xl bg-slate-50 border border-slate-200">
+                            <p class="text-sm font-semibold text-slate-800 mb-2">What happens next</p>
+                            <ol class="text-slate-600 text-sm space-y-1 list-decimal list-inside">
+                                <li>Your request is sent to our team (by email).</li>
+                                <li>We'll review your route and cargo and send a detailed quote within 24 hours.</li>
+                                <li>You confirm the booking; we schedule pickup and keep you updated.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </form>
+
+                <p class="mt-4 text-center text-xs text-slate-500">Free quote, no obligation. By submitting you agree to our <a href="privacy-policy.html" class="text-brand-primary hover:underline">Privacy Policy</a>.</p>
+
+                <div class="mt-8 p-4 rounded-2xl bg-white border border-slate-200">
+                    <p class="text-sm font-medium text-slate-700 text-center mb-3">Prefer to talk? We’ll take your details and send a quote the same way.</p>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="tel:+254721762828" class="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl border-2 border-brand-primary text-brand-primary font-semibold text-sm hover:bg-brand-primary hover:text-white transition-colors">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>Call +254 721 762 828</span>
+                        </a>
+                        <a href="https://wa.me/254107971792" target="_blank" rel="noopener" class="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-brand-whatsapp text-white font-semibold text-sm hover:opacity-90 transition-opacity">
+                            <i class="fab fa-whatsapp text-lg"></i>
+                            <span>Chat on WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 text-white py-16 mt-auto" role="contentinfo">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <img src="images/logo-main.png" alt="Segecha Group" class="h-10 w-auto mb-4 brightness-0 invert">
+                    <p class="text-slate-400 text-sm leading-relaxed">Reliable long-haul freight and cross-border transport across East Africa.</p>
+                    <a href="quote.html" class="inline-block mt-4 btn-primary btn-accent text-sm py-2.5 px-5 rounded-lg">Get a quote</a>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white mb-4">Links</h3>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li><a href="about.html" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="quote.html" class="hover:text-white transition-colors">Get a quote</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white mb-4">Contact</h3>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li><a href="tel:+254721762828" class="hover:text-white transition-colors">+254 721 762 828</a></li>
+                        <li><a href="tel:+254107971792" class="hover:text-white transition-colors">+254 107 971 792</a></li>
+                        <li><a href="mailto:info@segecha.com" class="hover:text-white transition-colors">info@segecha.com</a></li>
+                    </ul>
+                    <p class="text-slate-500 text-xs mt-3">Mombasa Port, Shed 12, Port Reitz Road, Mombasa, Kenya</p>
+                    <p class="text-slate-500 text-xs mt-1">Mon–Fri 8am–6pm · Sat 9am–2pm</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white mb-4">Legal</h3>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li><a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy</a></li>
+                        <li><a href="terms-of-service.html" class="hover:text-white transition-colors">Terms</a></li>
+                        <li><a href="cookie-policy.html" class="hover:text-white transition-colors">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-700 text-center text-slate-500 text-sm">
+                <p>Licensed &amp; insured · Kenya, Tanzania, Uganda, Rwanda &amp; Burundi</p>
+                <p class="mt-1">&copy; 2025 Segecha Group Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/254107971792" class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-brand-whatsapp text-white flex items-center justify-center shadow-lg hover:scale-105 transition-transform z-50 no-print" aria-label="Chat on WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp text-2xl"></i></a>
+
+    <script src="js/scripts.js"></script>
+    <script>
+(function() {
+    var step1 = document.getElementById('step1');
+    var step2 = document.getElementById('step2');
+    var btnNext = document.getElementById('btn-next');
+    var btnBack = document.getElementById('btn-back');
+    var progressBar = document.getElementById('progress-bar');
+    var progressLabel = document.getElementById('progress-label');
+    var progressPct = document.getElementById('progress-pct');
+
+    function goToStep(step) {
+        if (step === 1) {
+            step1.classList.add('active');
+            step2.classList.remove('active');
+            progressBar.style.width = '50%';
+            progressLabel.textContent = 'Step 1 of 2';
+            progressPct.textContent = '50%';
+        } else {
+            step1.classList.remove('active');
+            step2.classList.add('active');
+            progressBar.style.width = '100%';
+            progressLabel.textContent = 'Step 2 of 2';
+            progressPct.textContent = '100%';
+        }
+    }
+
+    btnNext.addEventListener('click', function() {
+        var name = document.getElementById('name');
+        var email = document.getElementById('email');
+        var phone = document.getElementById('phone');
+        var pickupCountry = document.getElementById('pickup_country');
+        var pickup = document.getElementById('pickup');
+        var dropoffCountry = document.getElementById('dropoff_country');
+        var dropoff = document.getElementById('dropoff');
+        var valid = true;
+        [name, email, phone, pickupCountry, pickup, dropoffCountry, dropoff].forEach(function(field) {
+            if (field.hasAttribute('required') && !field.value.trim()) {
+                field.classList.add('border-red-500');
+                valid = false;
+            } else {
+                field.classList.remove('border-red-500');
+            }
+        });
+        if (valid) goToStep(2);
+    });
+
+    btnBack.addEventListener('click', function() { goToStep(1); });
+
+    // Send form to quote@segecha.com via mailto (opens user's email client)
+    var form = document.getElementById('quote-form');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var cargo = document.getElementById('cargo').value.trim();
+        var preferredDate = document.getElementById('preferred_date').value;
+        var notes = document.getElementById('notes').value.trim();
+        if (!cargo) {
+            document.getElementById('cargo').classList.add('border-red-500');
+            return;
+        }
+        document.getElementById('cargo').classList.remove('border-red-500');
+
+        var lines = [
+            'New Quote Request – Segecha Logistics',
+            '',
+            '--- Your details ---',
+            'Name: ' + document.getElementById('name').value,
+            'Company: ' + document.getElementById('company').value,
+            'Email: ' + document.getElementById('email').value,
+            'Phone: ' + document.getElementById('phone').value,
+            '',
+            '--- Route ---',
+            'From: ' + document.getElementById('pickup').value + ', ' + document.getElementById('pickup_country').value,
+            'To: ' + document.getElementById('dropoff').value + ', ' + document.getElementById('dropoff_country').value,
+            '',
+            '--- Cargo ---',
+            'Description: ' + cargo,
+            'Preferred pickup date: ' + (preferredDate || '(not specified)'),
+            'Additional notes: ' + (notes || '(none)')
+        ];
+        var body = lines.join('\n');
+        var subject = 'Quote Request – ' + document.getElementById('name').value;
+        var mailto = 'mailto:quote@segecha.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        window.location.href = mailto;
+    });
+})();
+    </script>
+</body>
+</html>

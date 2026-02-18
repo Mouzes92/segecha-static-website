@@ -1,0 +1,15 @@
+# Default document: serve index.html when visiting the directory root
+DirectoryIndex index.html
+
+# Allow access to sitemap and robots (some hosts block by default)
+<Files "sitemap.xml">
+    Require all granted
+</Files>
+<Files "robots.txt">
+    Require all granted
+</Files>
+
+# Optional: force HTTPS (uncomment if your host supports RewriteEngine)
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
